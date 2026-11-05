@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Dear Ushi-san! 🌸</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: Elegant Serifs and Japanese Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+JP:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Canvas Confetti CDN for Celebration Animation -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Floating Sakura Petals Container -->
+  <div id="sakura-container"></div>
+
+  <!-- Audio Player Controller -->
+  <div class="audio-control">
+    <button id="music-btn" aria-label="Toggle Background Music">
+      <span id="music-icon">🎵</span>
+    </button>
+    <!-- Replace source audio path if you have a local mp3 file -->
+    <audio id="bg-music" loop src="music/luminewave-infinity-love-629401.mp3"></audio>
+  </div>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Header Section -->
+    <header class="header-section">
+      <p class="date-badge">十一月八日 ・ 8 NOVEMBER</p>
+      <h1 class="main-title">Happy Birthday</h1>
+      <h2 class="sub-title">Dear Ushi-san</h2>
+      <p class="japanese-greeting">お誕生日おめでとうございます！</p>
+      <p class="romaji-greeting">Otanjoubi omedetou gozaimasu!</p>
+    </header>
+
+    <!-- Main Photo Section (Original vs Sketch) -->
+    <section class="photo-section">
+      <div class="photo-grid">
+        
+        <!-- Left: Original Photo -->
+        <div class="photo-card">
+          <div class="image-wrapper" onclick="openLightbox('images/ushi img.jpg', 'The Original 🌸')">
+            <img src="images/ushi img.jpg" alt="Ushi-san original photograph" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500/fff0f5/d87093?text=Original+Photo';">
+          </div>
+          <p class="photo-label">The Original 🌸</p>
+        </div>
+
+        <!-- Right: Hand-Drawn Sketch -->
+        <div class="photo-card">
+          <div class="image-wrapper" onclick="openLightbox('images/ushi sketch.jpg', 'A Little Sketch Made With Love')">
+            <img src="images/ushi sketch.jpg" alt="Hand-drawn pencil sketch of Ushi-san" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500/f5f0ff/9370db?text=My+Sketch';">
+          </div>
+          <p class="photo-label">A Little Sketch Made With Love</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Birthday Message Section -->
+    <section class="message-section">
+      <div class="cake-illustration">
+        🎂
+      </div>
+      <div class="message-content">
+        <p class="wish-text">
+          うしさん、誕生日おめでとう！🎉<br>
+          願いが全部叶いますように✨<br>
+          大変なことがあっても諦めないでね。うしさんは本当に頑張り屋で素敵な人だよ。私もいっぱい学んだよ。ありがとう！<br>
+          これからもよろしくね！
+        </p>
+        <p class="signature">With warm wishes ❤️</p>
+      </div>
+    </section>
+
+    <!-- Interactive Surprise Section -->
+    <!-- Interactive Surprise Section -->
+    <section class="surprise-section">
+      <button id="surprise-btn" class="pulse-button">
+        🌸 Open Your Surprise 🌸
+      </button>
+
+      <!-- Hidden Letter Modal/Container -->
+      <div id="surprise-modal" class="hidden-modal">
+        <div class="modal-card">
+          <button class="close-btn" onclick="closeSurprise()">&times;</button>
+          <h3>A Special Note For You 💌</h3>
+          <hr class="divider">
+          <p class="letter-body">
+            Dear Ushi-san,<br><br>
+            Thank you for bringing so much warmth and kindness into the world.<br>
+            Creating this little sketch and page was a true joy.<br>
+            May this new year of your life bring you endless peace, happiness, and beautiful adventures.
+          </p>
+          <p class="letter-footer">Happy 8th of November! 🌸<br><small style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-top: 8px;">by Sainath</small></p>
+        </div>
+      </div>
+    </section>
+      </div>
+    </section>
+
+    <!-- Scroll Reveal Bottom Surprise -->
+    <section id="bottom-surprise" class="bottom-surprise-section">
+      <div class="final-card">
+        <p>✨ "May your year be as gentle and beautiful as cherry blossoms in spring." ✨</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox Modal for Image Enlargement -->
+  <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Enlarged view">
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to Top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

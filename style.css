@@ -1,0 +1,447 @@
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #fcf8f9;
+  --card-bg: #ffffff;
+  --primary-pink: #f7cbd4;
+  --accent-pink: #d87093;
+  --accent-lavender: #e6e6fa;
+  --accent-blue: #e6f0fa;
+  --text-dark: #4a3e3e;
+  --text-muted: #7d6e6e;
+  --font-serif: 'Cormorant Garamond', 'Noto Serif JP', serif;
+  --font-sans: 'Poppins', sans-serif;
+  --shadow: 0 10px 30px rgba(216, 112, 147, 0.12);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   Background Animations (Sakura Petals)
+   ========================================================================== */
+#sakura-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.petal {
+  position: absolute;
+  background-color: #ffb7c5;
+  border-radius: 15px 0 15px 0;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+/* ==========================================================================
+   Layout & Container
+   ========================================================================== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Audio Controller
+   ========================================================================== */
+.audio-control {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+#music-btn {
+  background: white;
+  border: 1px solid var(--primary-pink);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+#music-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   Header Section
+   ========================================================================== */
+.header-section {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-top: 20px;
+}
+
+.date-badge {
+  letter-spacing: 4px;
+  font-size: 0.85rem;
+  color: var(--accent-pink);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-family: var(--font-serif);
+}
+
+.main-title {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #3b2d2d;
+  line-height: 1.1;
+}
+
+.sub-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #665252;
+  margin-bottom: 20px;
+}
+
+.japanese-greeting {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  color: var(--accent-pink);
+  margin-top: 10px;
+}
+
+.romaji-greeting {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Photo Grid Section (Equal Columns & Responsive)
+   ========================================================================== */
+.photo-section {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(247, 203, 212, 0.4);
+  margin-bottom: 50px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  background-color: #faf6f7;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-wrapper:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(216, 112, 147, 0.2);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.03);
+}
+
+.photo-label {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ==========================================================================
+   Message Section
+   ========================================================================== */
+.message-section {
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 0%, #fff7f9 100%);
+  border-radius: 24px;
+  padding: 40px 30px;
+  margin-bottom: 50px;
+  border: 1px solid rgba(230, 230, 250, 0.8);
+  box-shadow: var(--shadow);
+}
+
+.cake-illustration {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.wish-text {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--text-dark);
+  max-width: 650px;
+  margin: 0 auto 20px;
+}
+
+.signature {
+  font-weight: 500;
+  color: var(--accent-pink);
+}
+
+/* ==========================================================================
+   Surprise Section & Modal
+   ========================================================================== */
+.surprise-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.pulse-button {
+  background: linear-gradient(45deg, var(--accent-pink), #e88ab0);
+  color: white;
+  border: none;
+  padding: 16px 36px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(216, 112, 147, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: var(--font-sans);
+}
+
+.pulse-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(216, 112, 147, 0.6);
+}
+
+.hidden-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hidden-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-card {
+  background: white;
+  max-width: 500px;
+  width: 90%;
+  padding: 40px;
+  border-radius: 24px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+  text-align: center;
+}
+
+.hidden-modal.active .modal-card {
+  transform: translateY(0);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: var(--primary-pink);
+  margin: 15px 0 20px;
+}
+
+.letter-body {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.letter-footer {
+  color: var(--accent-pink);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Bottom Surprise & Lightbox
+   ========================================================================== */
+.bottom-surprise-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.bottom-surprise-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.final-card {
+  background: rgba(230, 240, 250, 0.5);
+  padding: 25px;
+  border-radius: 16px;
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #556b82;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lightbox-modal img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+#lightbox-caption {
+  color: white;
+  margin-top: 15px;
+  font-size: 1.1rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* Back to top button */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background: white;
+  border: 1px solid var(--primary-pink);
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-size: 1.2rem;
+  z-index: 90;
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+@media (max-width: 650px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .sub-title {
+    font-size: 1.7rem;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .container {
+    padding: 20px 15px 60px;
+  }
+
+  .modal-card {
+    padding: 30px 20px;
+  }
+}
